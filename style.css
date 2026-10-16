@@ -499,13 +499,23 @@ body {
   letter-spacing: 0.04em;
 }
 
-.timeline-shop-name,
+.timeline-card-title,
 .timeline-activity {
   font-family: var(--font-serif);
-  font-size: 1.55rem;
+  font-size: 1.65rem;
   font-weight: 600;
   color: var(--text-white);
-  line-height: 1.25;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.timeline-shop-name {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-pink);
+  line-height: 1.4;
   margin-bottom: 0;
   word-break: break-word;
 }
@@ -940,9 +950,13 @@ body {
     height: 180px;
   }
 
-  .timeline-shop-name,
+  .timeline-card-title,
   .timeline-activity {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
+  }
+
+  .timeline-shop-name {
+    font-size: 0.9rem;
   }
 }
 
@@ -975,9 +989,13 @@ body {
     height: 150px;
   }
 
-  .timeline-shop-name,
+  .timeline-card-title,
   .timeline-activity {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
+  }
+
+  .timeline-shop-name {
+    font-size: 0.85rem;
   }
 
   .choice-btn {
