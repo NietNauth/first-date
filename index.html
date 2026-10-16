@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09070f">
+  <meta name="description" content="Một lời mời cho buổi chiều thảnh thơi tại Hà Nội">
+  <title>Một lời mời dành cho chị</title>
+
+  <!-- Google Fonts: Cormorant Garamond & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=3.2">
+</head>
+<body>
+  <!-- Heart & Sparkle Particle Canvas Background (from timeline) -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Ambient Glowing Orbs (from timeline) -->
+  <div class="glowing-orb orb-1"></div>
+  <div class="glowing-orb orb-2"></div>
+
+  <!-- ========================================================
+       MÀN 1: MỞ THIỆP MỜI (SCREEN 1)
+  ======================================================== -->
+  <section class="screen-view screen-envelope active" id="screenEnvelope" aria-label="Thiệp mời">
+    <div class="envelope-container">
+      <div class="invitation-card glass" id="invitationCard">
+        <div class="invite-date-badge">Chủ Nhật, 18 tháng 10 năm 2026</div>
+        <h1 class="hero-title">Em có một lời mời dành cho chị</h1>
+        
+        <div class="card-divider"></div>
+
+        <p class="hero-lead">
+          Em đang có một kế hoạch nhỏ cho chiều Chủ Nhật, nhưng hình như còn thiếu một người đặc biệt. Chị có muốn tham gia cùng em không ạ?
+        </p>
+        
+        <div class="hero-action">
+          <button type="button" class="btn-primary" id="openInviteBtn">
+            Mở lời mời
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       MÀN 2: LỊCH TRÌNH BÊN TRONG (SCREEN 2)
+  ======================================================== -->
+  <section class="screen-view screen-timeline" id="screenTimeline" aria-label="Chi tiết lịch trình">
+    
+    <!-- Top Bar Navigation -->
+    <nav class="timeline-top-nav">
+      <div class="container nav-container">
+        <button type="button" class="btn-back-nav" id="backToEnvelopeBtn" aria-label="Xem lại thiệp">
+          &larr; Xem lại thiệp
+        </button>
+      </div>
+    </nav>
+
+    <!-- SECTION: LỊCH TRÌNH / OUR LITTLE DATE (2 chặng) -->
+    <div class="section schedule-section" id="schedule">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Chủ Nhật, 18 tháng 10 năm 2026</span>
+          <h2 class="section-title">OUR LITTLE DATE</h2>
+          <!-- <p class="section-subtitle">Em đã nghĩ ra một lịch trình nho nhỏ cho hai chị em mình vào Chủ Nhật, 18 tháng 10 năm 2026.</p> -->
+        </div>
+
+        <div class="timeline">
+          <!-- Chặng 01: Cafe -->
+          <article class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="timeline-time">16:30</span>
+            </div>
+            <div class="timeline-card glass">
+              <span class="card-time-badge">16:30</span>
+              <h3 class="timeline-shop-name">3C Roastery Coffee</h3>
+              <div class="timeline-map-wrapper" id="map1">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.9315749665125!2d105.80677181143315!3d21.035423687467652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abb00f957c5d%3A0xe89732d73192b35f!2s3C%20Roastery%20-%2092%20Phan%20K%E1%BA%BF%20B%C3%ADnh!5e0!3m2!1svi!2s!4v1792162182209!5m2!1svi!2s" 
+                  width="100%" 
+                  height="100%" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allow="geolocation"
+                  title="3C Roastery - 92 Phan Kế Bính"
+                ></iframe>
+              </div>
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=3C+Roastery+-+92+Phan+K%E1%BA%BF+B%C3%ADnh,+92+P.+Phan+K%E1%BA%BF+B%C3%ADnh,+C%E1%BB%91ng+V%E1%BB%8B,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="map-direct-link"
+              >
+                <span>Chỉ đường trên Google Maps</span>
+                <span class="link-arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Chặng 02: Bữa tối ấm cúng -->
+          <article class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="timeline-time">19:00</span>
+            </div>
+            <div class="timeline-card glass">
+              <span class="card-time-badge">19:00</span>
+              <h3 class="timeline-shop-name">Takeko Yakiniku</h3>
+              <div class="timeline-map-wrapper" id="map2">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.917048752352!2d105.80558426143308!3d21.03600483744766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab307bc588fb%3A0xaa42c7a4e73e1912!2sTakeko%20Yakiniku%2039%20Phan%20K%E1%BA%BF%20B%C3%ADnh!5e0!3m2!1svi!2s!4v1792162422483!5m2!1svi!2s" 
+                  width="100%" 
+                  height="100%" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allow="geolocation"
+                  title="Takeko Yakiniku 39 Phan Kế Bính"
+                ></iframe>
+              </div>
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=Takeko+Yakiniku+39+Phan+K%E1%BA%BF+B%C3%ADnh,+39+P.+Phan+K%E1%BA%BF+B%C3%ADnh,+C%E1%BB%91ng+V%E1%BB%8B,+Ba+%C4%90%C3%ACnh,+H%C3%A0+N%E1%BB%99i" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="map-direct-link"
+              >
+                <span>Chỉ đường trên Google Maps</span>
+                <span class="link-arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="schedule-note glass reveal">
+          <div class="pickup-offer">
+            <span class="pickup-tag">Đưa đón</span>
+            <p class="pickup-text">Nếu chị đồng ý và thấy thoải mái, em có thể qua tận nơi đón chị trước giờ hẹn để chị đỡ phải tự đi nhé.</p>
+          </div>
+          <div class="note-rule"></div>
+          <p class="schedule-note-general">
+            Lịch trình chỉ là dự kiến thôi nhé. Nếu chị thích đổi quán cafe hay món ăn khác thì chị nói với em nháaa.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: TƯƠNG TÁC / Ý KIẾN CỦA CHỊ -->
+    <div class="section interactive-section" id="interaction">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Ý kiến của chị</span>
+          <h2 class="section-title">Thế, chị thấy kế hoạch này thế nào?</h2>
+          <p class="section-subtitle">Em lên lịch trình rồi, giờ đến lượt chị chọn nhé.</p>
+        </div>
+
+        <div class="choices-wrapper reveal">
+          <button type="button" class="choice-btn choice-accept" data-choice="yes">
+            Đi thui nè
+          </button>
+
+          <button type="button" class="choice-btn choice-adjust" data-choice="adjust">
+            Chị muốn đổi một chút
+          </button>
+
+          <button type="button" class="choice-btn choice-consider" data-choice="think">
+            Để chị suy nghĩ thêm
+          </button>
+        </div>
+
+        <!-- Khung phản hồi tinh tế, hiển thị ngay trên trang -->
+        <div class="response-container" id="responseBox" aria-live="polite">
+          <div class="response-card glass">
+            <span class="response-tag" id="responseTag">Phản hồi</span>
+            <h4 class="response-heading" id="responseTitle"></h4>
+            <p class="response-text" id="responseMessage"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: LỜI KẾT & CHỮ KÝ -->
+    <div class="section closing-section" id="closing">
+      <div class="container reveal">
+        <div class="closing-content">
+          <p class="closing-main">
+            Dù câu trả lời là gì, em vẫn mong hai chị em sẽ có một ngày thật vui.
+          </p>
+          <p class="closing-lead">See you soon?</p>
+        </div>
+
+        <footer class="site-footer">
+          <div class="footer-rule"></div>
+          <p class="footer-credit">Made with a little courage &amp; a lot of good intentions</p>
+          <p class="footer-author">Created with ❤️ by NietNauth</p>
+        </footer>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="script.js?v=3.3"></script>
+</body>
+</html>
