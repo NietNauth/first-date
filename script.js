@@ -206,8 +206,8 @@ function initChoiceInteractions() {
 
   const responses = {
     yes: {
-      title: 'Tuyệtttt! Vậy hẹn chị Chủ Nhật ạ.',
-      message: 'Em háo hức lắm roiii :)))'
+      title: 'Tuyệt quá! Vậy hẹn chị Chủ Nhật, 18 tháng 10 năm 2026 nhé.',
+      message: 'Em rất mong chờ buổi gặp mặt vào Chủ Nhật, 18 tháng 10 năm 2026. Hôm đó nếu chị đồng ý thì để em qua đón chị luôn nha!'
     },
     adjust: {
       title: 'Dạ được chứ, chị muốn đổi địa điểm, món ăn hay lịch trình? Hai chị em mình cùng chọn nhé!',
@@ -216,7 +216,7 @@ function initChoiceInteractions() {
   };
 
   // ----------------------------------------------------
-  // Nút từ chối không thể bấm (Runaway / Dodge Button)
+  // Nút từ chối KHÔNG CHO ẤN (Runaway / Dodge Button)
   // ----------------------------------------------------
   if (rejectBtn) {
     const funnyTexts = [
@@ -306,15 +306,27 @@ function initChoiceInteractions() {
 
   // ----------------------------------------------------
   // Xử lý các lựa chọn hợp lệ (Đi thui nè & Đổi một chút)
+  // - Ấn vào nút đang mở -> TẮT response-container show đi (Toggle)
+  // - Ấn sang nút khác -> Chuyển đổi mượt mà
   // ----------------------------------------------------
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const choice = btn.getAttribute('data-choice');
-      if (choice === 'think') return; // Chặn nút từ chối
+      if (choice === 'think') return; // Nút từ chối hoàn toàn không cho ấn
+
+      const isAlreadyActive = btn.classList.contains('active');
+
+      // Nếu ấn vào nút đang mở response -> Tắt response-container show đang hiện đi
+      if (isAlreadyActive && responseBox.classList.contains('show')) {
+        btn.classList.remove('active');
+        responseBox.classList.remove('show');
+        return;
+      }
 
       const data = responses[choice];
       if (!data) return;
 
+      // Đổi trạng thái active
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -322,9 +334,11 @@ function initChoiceInteractions() {
         rejectBtn.style.transform = 'translate(0, 0)';
       }
 
+      // Cập nhật tiêu đề & nội dung
       responseTitle.textContent = data.title;
       responseMessage.textContent = data.message;
 
+      // Bật hiển thị response-container
       responseBox.classList.add('show');
 
       setTimeout(() => {
